@@ -95,3 +95,33 @@ console.log(i); // this will output 23 because it is outside of the for loop
 // if it was a var then it would change also outside the loop
 
 */
+
+
+////////////////////////////////////////////////////////
+// BLOCKS AND IIFEs
+
+/*
+
+// ES6
+
+{
+    const a = 1;
+    let b = 2;
+    var c = 3;
+
+}
+
+//console.log(a + b);
+console.log(c);
+
+
+// ES5
+(function() {
+
+    var c = 3;
+
+})();
+
+// console.log(c);
+
+*/
