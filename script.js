@@ -125,3 +125,28 @@ console.log(c);
 // console.log(c);
 
 */
+
+////////////////////////////////////
+//// STRINGS
+
+let firstName = 'John';
+let lastName = 'Smith';
+const yearOfBirth = 1986;
+function calcAge(year) {
+    return 2018 - year;
+}
+
+
+// ES5
+console.log('This is ' + firstName + ' ' + lastName + '. He was born in ' + yearOfBirth + '. Today he is ' + calcAge(yearOfBirth) + ' years old.');
+
+// ES6
+console.log(`This is ${firstName} ${lastName}. He was born in ${yearOfBirth}. Today he is ${calcAge(yearOfBirth)} years old.`) // template literals
+
+
+const n = `${firstName} ${lastName}`;
+console.log(n.startsWith('J')); //true
+console.log(n.endsWith('th')); //true
+console.log(n.includes(' ')); // True that it has a space
+console.log(firstName.repeat(5));
+console.log(`${firstName} `.repeat(5)); // repeats with a space
