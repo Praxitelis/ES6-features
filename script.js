@@ -341,20 +341,20 @@ console.log(retirement);
 /////////////////////////////////////////////////////////////////////////////////////////////
 //////// ARRAYS
 
-const boxes = document.querySelectorAll('.box');
+/*const boxes = document.querySelectorAll('.box');
 
 // ES5
 var boxesArr5 = Array.prototype.slice.call(boxes);
 boxesArr5.forEach(function(cur) {
     cur.style.backgroundColor = 'dodgerblue';
 });
-
+*/
 
 
 // ES6
 // the .from converts boxes into an array 
-const boxesArr6 = Array.from(boxes);
-Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
+/*const boxesArr6 = Array.from(boxes);
+Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');*/
 
 // the problem with the map and the forEach loops is that we cannot break from them
 
@@ -372,7 +372,7 @@ Array.from(boxes).forEach(cur => cur.style.backgroundColor = 'dodgerblue');
 }*/
 
 // ES6
-for (const cur of boxesArr6){
+/*for (const cur of boxesArr6){
     if (cur.className.includes('blue')) {
         continue;
     }
@@ -397,3 +397,43 @@ console.log(ages[full.indexOf(true)]);
 // ES6
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >= 18));
+*/
+
+
+//////////////////////////////////////////////////////////////////
+/// SPREAD OPERATOR
+
+function addFourAges (a, b, c, d) {
+    return a + b + c + d;[]
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1);
+
+// ES5
+var ages = [18, 30, 12, 21];
+var sum2 = addFourAges.apply(null, ages);
+
+console.log(sum2);
+
+
+// ES6
+const sum3 = addFourAges(...ages);
+console.log(sum3);
+
+
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const familyMiller = ['Mary', 'Bob', 'Ann'];
+const bigFamily = [...familySmith, 'Lily', ...familyMiller];
+console.log(bigFamily);
+
+// we can use the spread operator on node lists as well
+
+const h = document.querySelector('h1');
+
+const boxes = document.querySelectorAll('.box');
+
+const all = [h, ...boxes];
+
+Array.from(all).forEach(cur => cur.style.color = 'purple');
