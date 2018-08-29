@@ -403,6 +403,8 @@ console.log(ages.find(cur => cur >= 18));
 //////////////////////////////////////////////////////////////////
 /// SPREAD OPERATOR
 
+/*
+
 function addFourAges (a, b, c, d) {
     return a + b + c + d;[]
 }
@@ -437,3 +439,56 @@ const boxes = document.querySelectorAll('.box');
 const all = [h, ...boxes];
 
 Array.from(all).forEach(cur => cur.style.color = 'purple');
+
+
+*/
+
+
+/////////////////////////////////////////////////////////////
+// REST PARAMETERS - the oposite to spread operator
+/*
+// ES5
+function isFullAge5() {
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments);
+
+    argsArr.forEach(function(cur) {
+        console.log((2018 - cur) >= 18);
+    })
+}
+
+//isFullAge5(1990, 1999, 1965, 2016);
+//isFullAge5(1990, 1999, 1965, 2016, 1845);
+
+// ES6
+function isFullAge6(...years) {
+    console.log(years);
+
+    years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(1990, 1999, 1965, 2016);
+
+*/
+
+// ES5
+function isFullAge5(limit) {
+    //console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments, 1); //we exclude the first arg, which is the limit
+    //console.log(argsArr);
+    argsArr.forEach(function(cur) {
+        console.log((2018 - cur) >= limit);
+    })
+}
+
+isFullAge5(16, 1990, 1999, 1965, 2016);
+//isFullAge5(1990, 1999, 1965, 2016, 1845);
+
+// ES6
+function isFullAge6(limit, ...years) {
+    console.log(years);
+
+    years.forEach(cur => console.log((2018 - cur) >= limit));
+}
+
+isFullAge6(16, 1990, 1999, 1965, 2016, 1987);
