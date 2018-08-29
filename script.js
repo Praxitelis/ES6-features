@@ -471,6 +471,9 @@ isFullAge6(1990, 1999, 1965, 2016);
 
 */
 
+
+
+/*
 // ES5
 function isFullAge5(limit) {
     //console.log(arguments);
@@ -492,3 +495,48 @@ function isFullAge6(limit, ...years) {
 }
 
 isFullAge6(16, 1990, 1999, 1965, 2016, 1987);
+
+*/
+
+
+////////////////////////////////////////////////////////////
+/// DEFAULT PARAMETERS
+
+
+// ES5
+
+/*
+
+function SmithPerson(firstName, yearOfBirth, lastName, nationality) {
+
+    lastName === undefined ? lastName = 'Smith' : lastName = lastName; // we can set default values for the empty values like this
+    nationality === undefined ? nationality = 'american' : nationality = nationality;
+
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
+
+var john = new SmithPerson('John', 1990); // we only specified 2 of the parameters, so they will be undefined
+
+var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
+
+*/
+
+// ES6
+
+function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'american') {
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
+
+
+
+var john = new SmithPerson('John', 1990); // we only specified 2 of the parameters, so they will be undefined
+
+var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
+
+
