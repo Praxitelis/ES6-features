@@ -546,6 +546,8 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 ///////////////////////////////////////////////////////////////////////
 //// MAPS
 
+/*
+
 const question = new Map();
 question.set('question', 'What is the official name of the latest major JavaScript version?');
 
@@ -591,3 +593,56 @@ console.log(question.get(ans === question.get('correct'))); // this will either 
 // Maps are iterable
 // Easy to get size with the maps, using .size property
 // We can easily add and remove data from maps
+
+
+*/
+
+
+///////////////////////////////////////////////////////////////////////////
+//// CLASSES
+
+//ES5
+var Person5 = function(name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+Person5.prototype.calculateAge = function() {
+    var age = new Date().getFullYear - this.yearOfBirth;
+    console.log(age);
+}
+
+
+var john5 = new Person5('John', 1990, 'teacher');
+
+//ES6
+
+class Person6 {
+    constructor (name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+
+    calculateAge() {
+        var age = new Date().getFullYear - this.yearOfBirth;
+        console.log(age);
+    }
+
+    static greeting() {     // this is a static method, attached to the class but not inherited by its copies
+        console.log('Hey there!');  // Static methods are not really useful...
+    }
+}
+
+const john6 = new Person6('John', 1990, 'teacher');
+
+// some people hate classes in Javascript because they hide the object oriented nature of
+// javascript. Behind the scenes, a class is just a function constructor, which looks nicer
+
+Person6.greeting(); // static method call
+
+// Unlike function constructors, we first need to create the class and later in the code use it.
+// In other words, Class definitions are not HOISTED
+// We can only add methods to classes, no properties. This is not a problem at all because
+// inheriting properties between object instances is not a good practice!
