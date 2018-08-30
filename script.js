@@ -526,6 +526,7 @@ var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 
 // ES6
 
+/*
 function SmithPerson(firstName, yearOfBirth, lastName = 'Smith', nationality = 'american') {
     this.firstName = firstName;
     this.yearOfBirth = yearOfBirth;
@@ -540,3 +541,53 @@ var john = new SmithPerson('John', 1990); // we only specified 2 of the paramete
 var emily = new SmithPerson('Emily', 1983, 'Diaz', 'spanish');
 
 
+*/
+
+///////////////////////////////////////////////////////////////////////
+//// MAPS
+
+const question = new Map();
+question.set('question', 'What is the official name of the latest major JavaScript version?');
+
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct', 3);
+question.set(true, 'Correct answer!');
+question.set(false, 'Wrong, please try again!');
+
+console.log(question.get('question'));
+//console.log(question.size);
+
+
+if(question.has(4)) {
+    //question.delete(4);
+    //console.log('Answer 4 is here!')
+}
+
+//question.clear();
+
+// Looping through a map (which is not available for objects)
+
+//question.forEach((value, key) => console.log(`This is ${key}, and is set to ${value}`));
+
+
+for (let [key, value] of question.entries()) {   // .entries returns all entries of the map. The [ ] is for destructuring
+    //console.log(`This is ${key}, and is set to ${value}`);
+
+    if (typeof(key) === 'number') {
+        console.log(`Answer ${key}: ${value}`);
+
+    }
+}
+
+const ans = parseInt(prompt('Write the correct answer'));
+
+console.log(question.get(ans === question.get('correct'))); // this will either be true or false
+                                              // We dont need an if else statement
+
+// With maps we can use anything as keys
+// Maps are iterable
+// Easy to get size with the maps, using .size property
+// We can easily add and remove data from maps
